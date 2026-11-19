@@ -1,32 +1,31 @@
-# React + TypeScript + Vite
+# Dashboard del Clima
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Dashboard del clima construido con React, TypeScript y MUI. Consume la API de [Open-Meteo](https://open-meteo.com/) para mostrar el clima actual de Guayaquil.
 
-Currently, two official plugins are available:
+Sitio publicado: https://matheoglg.github.io/dashboard/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Distribución responsiva con `Grid` de MUI (encabezado, alertas, selector, indicadores, gráfico, tabla e información adicional).
+- Componentes reutilizables con props tipadas: `HeaderUI`, `AlertUI`, `SelectorUI` e `IndicatorUI`.
+- Selector de ciudades con eventos y `useState`.
+- Indicadores de temperatura, temperatura aparente, velocidad del viento y humedad relativa obtenidos con el hook personalizado `useFetchData` (`useEffect` + `fetch`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologías
 
-## Expanding the Oxlint configuration
+React · TypeScript · Vite · MUI · Open-Meteo · GitHub Pages
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Ejecución local
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Despliegue
+
+```bash
+npm run deploy
+```
+
+El script `predeploy` compila el proyecto (`npm run build`) y `gh-pages` publica la carpeta `dist` en la rama `gh-pages`.
